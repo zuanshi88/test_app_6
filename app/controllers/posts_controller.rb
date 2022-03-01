@@ -1,6 +1,10 @@
 class PostsController < ApplicationController 
+
+    def index 
+    end 
+
     def show 
-        byebug
+        # byebug
         @post = Post.find(params[:id])
     end 
 end 
