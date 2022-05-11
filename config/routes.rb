@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   resources :articles
   resources :posts 
-
+  get 'signup', to: 'users#new'
+  resources :users, except: [:new]
   # could restrict with a hash of only: [show, edit]
   #expose all REST-ful routes-- representational state transfer
   # basically a mapping of the HTTP verbs(get, post, put/patch, delete)
