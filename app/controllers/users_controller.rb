@@ -1,4 +1,9 @@
 class UsersController < ApplicationController 
+    
+    def show 
+        @user = User.find(params[:id])
+        @articles = @user.articles.reverse
+    end 
 
     def new 
         @user = User.new
@@ -27,6 +32,8 @@ class UsersController < ApplicationController
             render 'new'
         end 
     end 
+
+
     private 
 
     def user_params 
