@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :posts 
   get 'signup', to: 'users#new'
   resources :users, except: [:new]
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
   # could restrict with a hash of only: [show, edit]
   #expose all REST-ful routes-- representational state transfer
   # basically a mapping of the HTTP verbs(get, post, put/patch, delete)

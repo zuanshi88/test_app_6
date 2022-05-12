@@ -18,8 +18,10 @@
 
           <div class="card-body">
               <%= link_to 'view profile', user_path(user), class: "btn btn-outline-success" %></a>
-              <%= link_to 'edit profile', edit_user_path(user), class: "btn btn-outline-info"  %></a>
-              <%= link_to 'delete profile', user_path(user), class: "btn btn-outline-danger", method: :delete, data: { confirm: "Are you REALLY sure?"} %> 
+              <% if logged_in? && user == current_user %>
+                <%= link_to 'edit profile', edit_user_path(user), class: "btn btn-outline-info"  %></a>
+                <%= link_to 'delete profile', user_path(user), class: "btn btn-outline-danger", method: :delete, data: { confirm: "Are you REALLY sure?"} %> 
+              <% end %>
           </div>
           <div class="card-footer text-muted">
             <small>Joined <%= time_ago_in_words(user.created_at)%></small>

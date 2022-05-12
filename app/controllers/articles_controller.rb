@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles or /articles.json
   def index
-    @articles = Article.paginate(page: params[:page], per_page: 5)
+    @articles = Article.paginate(page: params[:page], per_page: 5).order('created_at DESC')
   end
 
   # GET /articles/1 or /articles/1.json
@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
   # POST /articles or /articles.json
   def create
     @article = Article.new(article_params)
-    @article.user = User.first 
+    @article.user = current_user
 
     respond_to do |format|
       if @article.save
