@@ -15,7 +15,11 @@ class ArticlesController < ApplicationController
   end
   
   def index
-    @articles = Article.paginate(page: params[:page], per_page: 5).order('created_at DESC')
+    if Article.all.size < 5
+      @articles = Article.all 
+    else
+      @articles = Article.paginate(page: params[:page], per_page: 5).order('created_at').order("created_at ASC")
+    end 
   end
 
   # GET /articles/new
