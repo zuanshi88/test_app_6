@@ -26,12 +26,12 @@
              <li class="nav-item">
                 <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Profile [<%= current_user.username %>]
+                <%= "(admin)" if current_user.admin? %> Profile [<%= current_user.username %>]
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to "View your profile", user_path(current_user), class: "nav-link active"%>
               <%= link_to "Edit your profile", edit_user_path(current_user), class: "nav-link active"%>
-              <%= link_to "Delete profile", user_path(current_user), class: "nav-link active text-danger", method: :method, data: { confirm: "Are you sure?"} %>
+              <%= link_to "Delete profile", user_path(current_user), class: "nav-link active text-danger", method: :delete, data: { confirm: "Are you sure?"} %>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>
         
