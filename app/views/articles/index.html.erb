@@ -1,14 +1,11 @@
   <h1 class="text-center mt-4">Listing all articles</h1>
-  <% unless @articles.size < 5 %>
+  
     <div class="flickr_pagination">
         <%= will_paginate @articles, container: false %>
     </div>
-  <% end %>
 
       <%= render 'article' %>
 
-  <% unless @articles.size < 5 %>
-      <div class="flickr_pagination mb-5">
-          <%= will_paginate @articles, container: false %>
-      </div>
-  <% end %>
+    <div class="flickr_pagination mb-4">
+        <%= will_paginate @articles, container: false %>
+    </div>
