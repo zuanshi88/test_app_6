@@ -15,11 +15,7 @@ class ArticlesController < ApplicationController
   end
   
   def index
-    if Article.all.size < 5
-      @articles = Article.all 
-    else
-      @articles = Article.paginate(page: params[:page], per_page: 5)
-    end 
+      @articles = Article.paginate(page: params[:page], per_page: 5) || Article.all
   end
 
   # GET /articles/new
