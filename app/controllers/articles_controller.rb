@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
     if Article.all.size < 5
       @articles = Article.all 
     else
-      @articles = Article.paginate(page: params[:page], per_page: 5).order('created_at').order("created_at ASC")
+      @articles = Article.paginate(page: params[:page], per_page: 5)
     end 
   end
 
