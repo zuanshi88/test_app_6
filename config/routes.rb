@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+  resources :categories, except: [:destroy]
   # could restrict with a hash of only: [show, edit]
   #expose all REST-ful routes-- representational state transfer
   # basically a mapping of the HTTP verbs(get, post, put/patch, delete)
