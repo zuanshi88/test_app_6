@@ -4,8 +4,12 @@
         <%= will_paginate @categories, :container => false %>
     </div>
 
-      <%= render 'category' %>
+      <%= render 'categories' %>
 
     <div class="flickr_pagination mb-4">
         <%= will_paginate @categories, :container => false %>
+    </div>
+
+    <div class="mb-3 text-center">
+        <%= link_to '[ Cancel and return to categories listings ]', categories_path, class: "text-info text-center" %>
     </div>
