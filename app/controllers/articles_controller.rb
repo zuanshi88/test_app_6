@@ -8,10 +8,7 @@ class ArticlesController < ApplicationController
   
   # GET /articles/1 or /articles/1.json
   def show
-    #does not need this? Intuits the desigh...
-    # aka knows the design
-    # aka is the design
-    # @article = Article.find(params[:id])
+    @article = Article.find(params[:id])
   end
   
   def index
