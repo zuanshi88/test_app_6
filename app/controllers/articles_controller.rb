@@ -87,4 +87,14 @@ class ArticlesController < ApplicationController
       end 
     end 
 
+    def search
+    
+        @search_word = params[:search_word].downcase
+
+        @search_results = Article.search(@search_word)     
+       
+
+        redirect_to search_results
+    end 
+
 end
