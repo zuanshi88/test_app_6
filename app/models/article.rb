@@ -13,7 +13,7 @@ class Article < ApplicationRecord
                 unless article.description == nil || note.comment == ""
                     article.description.split(/[\s,'-\.!]/).each do |word|
                             content_hash[word.downcase] = [] if content_hash[word.downcase].nil? 
-                            content_hash[word.downcase].push(article))
+                            content_hash[word.downcase].push(article)
                     end 
                 end 
             end 

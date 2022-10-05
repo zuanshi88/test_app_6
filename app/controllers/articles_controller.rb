@@ -91,10 +91,10 @@ class ArticlesController < ApplicationController
     
         @search_word = params[:search_word].downcase
 
-        @search_results = Article.search(@search_word)     
+        @articles = Article.search(@search_word)     
        
 
-        redirect_to search_results
+        redirect_to articles_path
     end 
 
 end
