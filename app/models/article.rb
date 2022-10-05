@@ -10,14 +10,19 @@ class Article < ApplicationRecord
             # information = ["name", "last_name", "first_name"]
             content_hash = {}
             self.all.each do |article|
-                unless article.description == nil || note.comment == ""
+                unless article.description == nil || article.description == ""
                     article.description.split(/[\s,'-\.!]/).each do |word|
                             content_hash[word.downcase] = [] if content_hash[word.downcase].nil? 
                             content_hash[word.downcase].push(article)
                     end 
                 end 
-            end 
+            end     
         content_hash
     end
+
+    def self.search(search_word)
+        hash = self.index_content
+        hash[search_word]
+    end 
 
 end

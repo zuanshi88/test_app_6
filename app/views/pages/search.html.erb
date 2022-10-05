@@ -1,0 +1,20 @@
+  <h1 class="text-center mt-4">Listing results</h1>
+
+<div>
+
+<ul>
+<% if @articles %>
+    <% @articles.each do |article| %>
+        <li><%= link_to article.title, article %></li>
+    <% end %>
+<% else %>
+
+<li>Sorry Charlie!!!</li>
+<li><%= @search_word%></li>
+<li><%= Article.index_content['page']%></li>
+
+<% end %>
+</ul>
+
+
+</div>

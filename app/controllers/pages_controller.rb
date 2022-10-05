@@ -7,6 +7,13 @@ class PagesController < ApplicationController
     def about 
     end 
 
+    def search
+    
+        @search_word = params[:search_word].downcase
+
+        @articles = Article.index_content[@search_word] 
+      
+    end 
 
 
 end 
