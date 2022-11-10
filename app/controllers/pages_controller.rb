@@ -12,7 +12,9 @@ class PagesController < ApplicationController
         @search_word = params[:search_word].downcase
 
         @articles = Article.index_content[@search_word]
-        @articles.uniq! 
+        if @articles
+            @articles.uniq! 
+        end 
       
     end 
 
